@@ -29,11 +29,3 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: marisn/elmtool:latest
-      -
-        name: Build and Push ARM64
-        uses: docker/build-push-action@v3
-        with:
-          file: arm64/Dockerfile
-          platforms: linux/arm64
-          push: true
-          tags: marisn/elmtool:latest
