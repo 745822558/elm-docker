@@ -13,6 +13,6 @@ RUN set -xe && \
     tar -xvf elm-${VERLITE}-linux-${PLATFORM}.tar.gz
 
 WORKDIR /etc/elmtool
-COPY elm /etc/elmtool
+COPY /elm /etc/elmtool
 RUN chmod +x /etc/elmtool/elm
 CMD ["/etc/elmtool/elm"]
