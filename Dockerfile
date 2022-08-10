@@ -3,6 +3,8 @@ FROM alpine
 ENV VERSION 1.3
 ENV VERLITE 1.3.3
 
+WORKDIR /etc/elmtool
+
 RUN set -xe && \
     UNAME=$(uname -m) && if [ "$UNAME" = "x86_64" ]; then export PLATFORM=amd64 ; else export PLATFORM=arm64 ; fi && \
     apk add tzdata && \
@@ -10,6 +12,7 @@ RUN set -xe && \
     echo "Asia/Shanghai" > /etc/timezone && \
     apk del tzdata && \
     wget https://github.com/zelang/elm-release/releases/download/${VERSION}/elm-${VERLITE}-linux-${PLATFORM}.tar.gz && \
-    tar -xvf elm-${VERLITE}-linux-${PLATFORM}.tar.gz && ls
+    tar -xvf elm-${VERLITE}-linux-${PLATFORM}.tar.gz && rm -rf elm-${VERLITE}-linux-${PLATFORM}.tar.gz
 
-CMD ["/elm"]
+RUN chmod +x /etc/elmtool/elm
+CMD ["/etc/elmtool/elm"]
