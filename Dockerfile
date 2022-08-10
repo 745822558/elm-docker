@@ -10,9 +10,6 @@ RUN set -xe && \
     echo "Asia/Shanghai" > /etc/timezone && \
     apk del tzdata && \
     wget https://github.com/zelang/elm-release/releases/download/${VERSION}/elm-${VERLITE}-linux-${PLATFORM}.tar.gz && \
-    tar -xvf elm-${VERLITE}-linux-${PLATFORM}.tar.gz
+    tar -xvf elm-${VERLITE}-linux-${PLATFORM}.tar.gz && ls
 
-WORKDIR /etc/elmtool
-COPY /elm /etc/elmtool
-RUN chmod +x /etc/elmtool/elm
-CMD ["/etc/elmtool/elm"]
+CMD ["/elm"]
