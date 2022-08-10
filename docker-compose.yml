@@ -1,0 +1,17 @@
+version: '3'
+services:
+  relay:
+    image: "marisn/elmtool:latest"
+    container_name: elmtool
+    restart: always
+    network_mode: host
+    privileged: true
+    volumes:
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+      - ./config.yaml:/config.yaml
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
