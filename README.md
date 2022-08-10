@@ -1,6 +1,8 @@
 # elm-docker
  饿了么工具docker
  
+ 工具使用说明：[elm-release](https://github.com/zelang/elm-release)
+ 
 一键安装：
 ```shell
 bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/zelang/elm-docker/main/elmtool.sh')
