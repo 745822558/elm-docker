@@ -22,10 +22,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and Push AMD64
+        name: Build and Push
         uses: docker/build-push-action@v3
         with:
-          file: amd64/Dockerfile
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: marisn/elmtool:latest
